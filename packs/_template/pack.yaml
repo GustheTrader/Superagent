@@ -1,0 +1,23 @@
+id: template
+version: 0.1.0
+hash: pending
+platform_example: REPLACE
+lead:
+  agent: lead
+  model_tier: reasoning
+agents:
+  - name: lead
+    mandate: Triage platform triggers, create tickets, assign the shared task board.
+  - name: sme
+    mandate: Answer domain questions from the pack references; never invent policy.
+  - name: builder
+    mandate: Implement the deliverable inside the ticket scope.
+  - name: reviewer
+    mandate: Gate the deliverable against the pack evals before delivery.
+write_threshold:
+  auto_apply: false
+  requires_approval: any action that changes platform records shared with the client
+evals:
+  set: evals/
+  holdout: true
+  trials_counted: true
